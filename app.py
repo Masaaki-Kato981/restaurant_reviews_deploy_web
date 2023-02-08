@@ -10,7 +10,7 @@ load_dotenv()
 # instantiate flask and establish PostgreSQL database connection
 app = Flask(__name__)
 if os.getenv('DATABASE_URL'):
-        app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+        app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('DATABASE_URL')).replace("postgres://", "postgresql://", 1)
 #app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{username}:{password}@localhost:{port}/{dbname}"
 db = SQLAlchemy(app)
 
