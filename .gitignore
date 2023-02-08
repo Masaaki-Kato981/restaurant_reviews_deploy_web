@@ -1,3 +1,10 @@
+# mac junk
+.DS_Store
+
+# visual studio code junk
+.vscode/
+.vscode/settings.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

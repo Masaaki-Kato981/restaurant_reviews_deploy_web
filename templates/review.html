@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title">
+        <h1>{% block title %} {{ review.reviewer }}'s Review!{% endblock %}</h1>
+    </span>
+    <div class="content">
+            <div class="review">
+                <p><b>#{{ review.id }}</b></p>
+                <b>
+                    <p class="restaurant">{{ review.restaurant }}</p>
+                </b>
+                <p>name: {{ review.reviewer}}</p>
+                <p>Rating: {{ review.rating }}</p>
+                <p>Created: {{ review.created_at.strftime("%H:%M on %d %B %Y") }}</p>
+                <div class="review_content">
+                    <h4>Review</h4>
+                    <p>{{ review.review }}</p>
+                </div>
+            </div>
+    </div>
+{% endblock %}

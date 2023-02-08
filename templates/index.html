@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Reviews {% endblock %}</h1>
+    <div class="content">
+        {% for review in reviews %}
+            <div class="review">
+                <p><b>Review ID: {{ review.id }}</b></p>
+                <b>
+                    <p class="restaurant">
+                        <a href="{{ url_for('individual_review', review_id=review.id)}}">
+                        {{ review.restaurant }}
+                        <a>
+                    </p>
+                </b>
+                <p>name: {{ review.reviewer}}</p>
+                <p>Rating: {{ review.rating }}</p>
+                <p>Created: {{ review.created_at.strftime("%H:%M on %d %B %Y") }}</p>
+                <div class="review_content">
+                    <h4>Review</h4>
+                    <p>{{ review.review }}</p>
+                </div>
+                <a href="{{ url_for('edit', review_id=review.id) }}">Edit </a>
+                <hr>
+                <form method="POST"
+                        action="{{ url_for('delete', review_id=review.id) }}">
+                    <input type="submit" value="Delete Review"
+                        onclick="return confirm('Are you sure you want to delete this entry?')">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
