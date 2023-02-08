@@ -1,3 +1,0 @@
-For mac m1 (within python virtual environment of working directory)
-pip install Flask Flask-SQLAlchemy
-pip install psycopg2-binary
